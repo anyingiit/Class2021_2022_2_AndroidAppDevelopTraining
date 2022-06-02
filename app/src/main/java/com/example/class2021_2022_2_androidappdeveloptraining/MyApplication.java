@@ -19,12 +19,11 @@ public class MyApplication extends Application {
     }
 
     private void initFakeUser() {
-        userList.add(new MyUser_stu(0, "user1", "123", "15888888881", "花村"));
-        userList.add(new MyUser_stu(1, "user2", "123", "15888888881", "花村"));
-        userList.add(new MyUser_stu(2, "user3", "123", "15888888881", "花村"));
-        userList.add(new MyUser_stu(3, "user4", "123", "15888888881", "花村"));
-        userList.add(new MyUser_stu(4, "user5", "123", "15888888881", "花村"));
-        userList.add(new MyUser_stu(5, "user6", "123", "15888888881", "花村"));
+        addUser("user1", "123", "15888888881", "花村");
+        addUser("user2", "123", "15888888881", "花村");
+        addUser("user3", "123", "15888888881", "花村");
+        addUser("user4", "123", "15888888881", "花村");
+        addUser("user5", "123", "15888888881", "花村");
     }
 
     public void setUserLogout() {
@@ -40,14 +39,14 @@ public class MyApplication extends Application {
     }
 
     public void addUser(String username, String password, String phone, String address) {
-        int newID = userList.get(userList.size() - 1).mUserId_stu + 1;
+        int newID = userList.size() == 0 ? 0 : userList.get(userList.size() - 1).getmUserId_stu() + 1;
         userList.add(new MyUser_stu(newID, username, password, phone, address));
     }
 
     public MyUser_stu findUserByUsername(String username) {
         for (MyUser_stu user :
                 userList) {
-            if (user.mSeatName_stu.equals(username)) {
+            if (user.getmUsername_stu().equals(username)) {
                 return user;
             }
         }
@@ -58,7 +57,7 @@ public class MyApplication extends Application {
     public MyUser_stu findUserByPhone(String phone) {
         for (MyUser_stu user :
                 userList) {
-            if (user.mUserPhone_stu.equals(phone)) {
+            if (user.getmUserPhone_stu().equals(phone)) {
                 return user;
             }
         }
@@ -66,4 +65,23 @@ public class MyApplication extends Application {
         return null;
     }
 
+    private boolean hasUserListIndex(int index) {
+        return index >= 0 && index <= userList.size() - 1;
+    }
+
+    private boolean hasUserId(int id) {
+        return hasUserListIndex(id);
+    }
+
+    public MyUser_stu getUserById(int userId) {
+        if (!hasUserId(userId)) {
+            return null;
+        }
+
+        return userList.get(userId);
+    }
+
+    public MyUser_stu getUser() {
+        return user;
+    }
 }

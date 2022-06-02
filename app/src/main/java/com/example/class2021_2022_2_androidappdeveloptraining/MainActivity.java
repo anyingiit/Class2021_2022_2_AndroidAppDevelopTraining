@@ -5,25 +5,24 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
-import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
     private MyApplication app;
     private Context context;
 
     private enum REQUEST_CODE {
-        Register
+        Register,
+        UserCenter,
+        Order,
+        TackOut,
+        myOrder
     }
 
     Button orderFood;
@@ -52,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (app.IsUserLogin()) {
-                    boolean conformLogout = false;
                     IsConformDialog("确定注销吗", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -94,12 +92,70 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
+
+        userCenter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!app.IsUserLogin()) {
+                    Toast.makeText(MainActivity.this, "请先登录", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+
+                Intent intent = new Intent(MainActivity.this, UserCenter.class);
+                MyUser_stu user = app.getUser();
+                intent.putExtra("userId", user.getmUserId_stu());
+                startActivityForResult(intent, REQUEST_CODE.UserCenter.ordinal());
+            }
+        });
+
+        orderFood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!app.IsUserLogin()) {
+                    Toast.makeText(MainActivity.this, "请先登录", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                //TODO: 修改为正确的Activity
+                Intent intent = new Intent(MainActivity.this, UserCenter.class);
+                startActivityForResult(intent, REQUEST_CODE.UserCenter.ordinal());
+            }
+        });
+
+        takeOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!app.IsUserLogin()) {
+                    Toast.makeText(MainActivity.this, "请先登录", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                //TODO: 修改为正确的Activity
+                Intent intent = new Intent(MainActivity.this, UserCenter.class);
+                startActivityForResult(intent, REQUEST_CODE.UserCenter.ordinal());
+            }
+        });
+
+        myOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!app.IsUserLogin()) {
+                    Toast.makeText(MainActivity.this, "请先登录", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                //TODO: 修改为正确的Activity
+                Intent intent = new Intent(MainActivity.this, UserCenter.class);
+                startActivityForResult(intent, REQUEST_CODE.UserCenter.ordinal());
+            }
+        });
     }
 
     private void login(String username, String password) {
         MyUser_stu user = app.findUserByUsername(username);
         if (user != null) {
-            if (password.equals(user.mPassword_stu)) {
+            if (password.equals(user.getmPassword_stu())) {
                 app.userLogin(user);
                 login.setTextSize(20);
                 login.setText(username);
@@ -123,6 +179,10 @@ public class MainActivity extends AppCompatActivity {
                 String username = data.getStringExtra("username");
                 String password = data.getStringExtra("password");
                 login(username, password);
+            }
+        } else if (requestCode == REQUEST_CODE.UserCenter.ordinal()) {
+            if (requestCode == Activity.RESULT_OK) {
+                app.setUserLogout();
             }
         }
 
