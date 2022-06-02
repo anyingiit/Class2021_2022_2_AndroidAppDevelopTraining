@@ -1,0 +1,20 @@
+package com.example.class2021_2022_2_androidappdeveloptraining.fragment;
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+import com.example.class2021_2022_2_androidappdeveloptraining.R;
+
+public class CaipinFramgment extends Fragment {
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.framgment_caipin_list_stu, container, false);
+    }
+}

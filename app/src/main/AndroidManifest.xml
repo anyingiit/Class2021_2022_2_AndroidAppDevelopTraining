@@ -20,6 +20,7 @@
         </activity>
         <activity android:name=".RegisterActivity" />
         <activity android:name=".UserCenter" />
+        <activity android:name=".OrderAndShoppingActivity" />
     </application>
 
 </manifest>
