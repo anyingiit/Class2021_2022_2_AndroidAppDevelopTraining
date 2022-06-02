@@ -40,33 +40,29 @@
             android:orientation="vertical"
             android:background="#634">
 
-            <LinearLayout
+            <Button
+                android:id="@+id/button1"
+                android:layout_height="match_parent"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:background="#866"
+                android:text="点餐"
+                android:textSize="30dp"
                 android:layout_weight="50">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="点餐"
-                    android:textSize="30dp"
-                    android:gravity="center" />
-            </LinearLayout>
+            </Button>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+            <Button
                 android:background="#523"
+                android:id="@+id/button3"
+                android:layout_height="match_parent"
+
+                android:layout_width="match_parent"
+                android:textSize="30dp"
+
+                android:text="个人中心"
                 android:layout_weight="50">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="个人中心"
-                    android:textSize="30dp"
-                    android:gravity="center" />
-            </LinearLayout>
+            </Button>
 
         </LinearLayout>
 
@@ -77,52 +73,40 @@
             android:orientation="vertical"
             android:background="#634">
 
-            <LinearLayout
+            <Button
+                android:id="@+id/button2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:background="#882"
+                android:text="外卖"
+                android:textSize="30dp"
                 android:layout_weight="50">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="外卖"
-                    android:textSize="30dp"
-                    android:gravity="center" />
-            </LinearLayout>
+            </Button>
 
-            <LinearLayout
+            <Button
+                android:id="@+id/button4"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:background="#567"
+                android:textSize="30dp"
+                android:text="登录"
                 android:layout_weight="50">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="登录"
-                    android:textSize="30dp"
-                    android:gravity="center" />
-            </LinearLayout>
+            </Button>
 
         </LinearLayout>
 
     </LinearLayout>
 
-    <LinearLayout
+    <Button
+        android:id="@+id/button5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="20"
-        android:background="#754">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="我的订单"
-            android:textSize="30dp"
-            android:gravity="center" />
-
-    </LinearLayout>
+        android:text="我的订单"
+        android:textSize="30dp"
+        android:background="#754" />
 
 
 </LinearLayout>
