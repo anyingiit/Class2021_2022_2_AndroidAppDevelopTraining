@@ -8,6 +8,7 @@ public class MyApplication extends Application {
     private ArrayList<MyUser_stu> userList;
     private MyUser_stu user;
     private ShoppingCart_stu shoppingCart_stu;
+    private Dishes_stu dishes_stu;
 
     @Override
     public void onCreate() {
@@ -16,6 +17,12 @@ public class MyApplication extends Application {
         userList = new ArrayList<>();
 
         initFakeUser();
+        initDishs();
+    }
+
+    private void initDishs() {
+        dishes_stu = new Dishes_stu();
+        dishes_stu.addDish(new Dish_stu("宫保鸡丁", 0, 15.5f));
     }
 
     private void initFakeUser() {
@@ -24,6 +31,10 @@ public class MyApplication extends Application {
         addUser("user3", "123", "15888888881", "花村");
         addUser("user4", "123", "15888888881", "花村");
         addUser("user5", "123", "15888888881", "花村");
+    }
+
+    public Dishes_stu getDishes_stu() {
+        return dishes_stu;
     }
 
     public void setUserLogout() {

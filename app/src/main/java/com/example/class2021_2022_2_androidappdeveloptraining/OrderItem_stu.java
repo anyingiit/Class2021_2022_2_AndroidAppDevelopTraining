@@ -18,7 +18,7 @@ public class OrderItem_stu {
     }
 
     public float GetItemTotalPrice_stu() {
-        return dish_stu.mPrice_stu * mQuantity_stu;
+        return dish_stu.getmPrice_stu() * mQuantity_stu;
     }
 
     public void setQuantity(int newQuantity) {

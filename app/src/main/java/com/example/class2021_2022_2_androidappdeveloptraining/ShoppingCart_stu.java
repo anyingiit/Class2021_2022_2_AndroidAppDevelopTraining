@@ -45,7 +45,7 @@ public class ShoppingCart_stu {
      */
     private int getOrderIndexByDishName(String dishName) {
         for (int i = 0; i < mOrderItems_stu.size(); i++) {
-            if (mOrderItems_stu.get(i).getDish_stu().mName_stu.equals(dishName)) {
+            if (mOrderItems_stu.get(i).getDish_stu().getmName_stu().equals(dishName)) {
                 return i;
             }
         }
@@ -54,7 +54,7 @@ public class ShoppingCart_stu {
 
 
     public int addOrderItem(Dish_stu dish, int quantity) {
-        int orderIndex = getOrderIndexByDishName(dish.mName_stu);
+        int orderIndex = getOrderIndexByDishName(dish.getmName_stu());
         if (orderIndex == -1) {
             mOrderItems_stu.add(new OrderItem_stu(dish, quantity));
             return mOrderItems_stu.size() - 1;
