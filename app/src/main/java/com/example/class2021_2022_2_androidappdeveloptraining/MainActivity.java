@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                 Intent intent = new Intent(MainActivity.this, UserCenter.class);
-                User user = app.getUser();
+                User user = app.getLoginUser();
                 intent.putExtra("userId", user.getmUserId_stu());
                 startActivityForResult(intent, REQUEST_CODE.UserCenter.ordinal());
             }

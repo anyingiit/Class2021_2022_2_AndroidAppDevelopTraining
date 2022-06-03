@@ -9,7 +9,7 @@ import com.example.class2021_2022_2_androidappdeveloptraining.entity.User;
 import com.example.class2021_2022_2_androidappdeveloptraining.entity.Users;
 
 public class MyApplication extends Application {
-    private User user;
+    private User loginUser;
     private Users users;
     private ShoppingCard shoppingCart_stu;
     private Dishes dishes_;
@@ -42,20 +42,20 @@ public class MyApplication extends Application {
     }
 
     public void setUserLogout() {
-        user = null;
+        loginUser = null;
     }
 
     public boolean IsUserLogin() {
-        return user != null;
+        return loginUser != null;
     }
 
     public void userLogin(User user) {
-        this.user = user;
+        this.loginUser = user;
     }
 
 
-    public User getUser() {
-        return user;
+    public User getLoginUser() {
+        return loginUser;
     }
 
     public Users getUsers() {
