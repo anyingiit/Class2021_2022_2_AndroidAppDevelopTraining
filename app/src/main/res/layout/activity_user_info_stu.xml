@@ -32,13 +32,13 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="3"
             android:text="用户名: " />
 
         <TextView
             android:id="@+id/textView1"
             android:layout_width="0dp"
-            android:layout_weight="8"
+            android:layout_weight="7"
             android:layout_height="wrap_content" />
     </LinearLayout>
 
@@ -51,13 +51,13 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="3"
             android:text="用户密码: " />
 
         <EditText
             android:id="@+id/editText1"
             android:layout_width="0dp"
-            android:layout_weight="8"
+            android:layout_weight="7"
             android:layout_height="wrap_content" />
     </LinearLayout>
 
@@ -71,13 +71,13 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="3"
             android:text="电话号码: " />
 
         <EditText
             android:id="@+id/editText2"
             android:layout_width="0dp"
-            android:layout_weight="8"
+            android:layout_weight="7"
             android:layout_height="wrap_content" />
     </LinearLayout>
 
@@ -90,13 +90,13 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="3"
             android:text="送餐地址: " />
 
         <EditText
             android:id="@+id/editText3"
             android:layout_width="0dp"
-            android:layout_weight="8"
+            android:layout_weight="7"
             android:layout_height="wrap_content" />
     </LinearLayout>
 
