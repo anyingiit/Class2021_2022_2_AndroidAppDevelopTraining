@@ -118,7 +118,6 @@ public class MainActivity extends AppCompatActivity {
                 }
 
 
-                //TODO: 修改为正确的Activity
                 Intent intent = new Intent(MainActivity.this, OrderAndShoppingActivity.class);
                 startActivity(intent);
             }
@@ -127,28 +126,26 @@ public class MainActivity extends AppCompatActivity {
         takeOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!app.IsUserLogin()) {
-                    Toast.makeText(MainActivity.this, "请先登录", Toast.LENGTH_LONG).show();
-                    return;
-                }
+                Toast.makeText(MainActivity.this, "敬请期待!", Toast.LENGTH_LONG).show();
+                return;
 
-                //TODO: 修改为正确的Activity
-                Intent intent = new Intent(MainActivity.this, UserCenter.class);
-                startActivityForResult(intent, REQUEST_CODE.UserCenter.ordinal());
+//                if (!app.IsUserLogin()) {
+//                    Toast.makeText(MainActivity.this, "请先登录", Toast.LENGTH_LONG).show();
+//                    return;
+//                }
             }
         });
 
         myOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!app.IsUserLogin()) {
-                    Toast.makeText(MainActivity.this, "请先登录", Toast.LENGTH_LONG).show();
-                    return;
-                }
-
-                //TODO: 修改为正确的Activity
-                Intent intent = new Intent(MainActivity.this, UserCenter.class);
-                startActivityForResult(intent, REQUEST_CODE.UserCenter.ordinal());
+                Toast.makeText(MainActivity.this, "敬请期待!", Toast.LENGTH_LONG).show();
+                return;
+                
+//                if (!app.IsUserLogin()) {
+//                    Toast.makeText(MainActivity.this, "请先登录", Toast.LENGTH_LONG).show();
+//                    return;
+//                }
             }
         });
     }
