@@ -2,6 +2,11 @@ package com.example.class2021_2022_2_androidappdeveloptraining;
 
 import android.app.Application;
 
+import com.example.class2021_2022_2_androidappdeveloptraining.entity.Dish_stu;
+import com.example.class2021_2022_2_androidappdeveloptraining.entity.Dishes_stu;
+import com.example.class2021_2022_2_androidappdeveloptraining.entity.MyUser_stu;
+import com.example.class2021_2022_2_androidappdeveloptraining.entity.ShoppingCart_stu;
+
 import java.util.ArrayList;
 
 public class MyApplication extends Application {

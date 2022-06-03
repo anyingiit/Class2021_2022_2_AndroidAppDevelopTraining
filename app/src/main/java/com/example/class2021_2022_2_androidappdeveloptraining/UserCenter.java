@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import com.example.class2021_2022_2_androidappdeveloptraining.entity.MyUser_stu;
+
 public class UserCenter extends Activity {
     private MyApplication app;
 

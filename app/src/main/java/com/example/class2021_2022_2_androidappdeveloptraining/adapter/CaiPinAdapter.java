@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.example.class2021_2022_2_androidappdeveloptraining.Dish_stu;
 import com.example.class2021_2022_2_androidappdeveloptraining.R;
+import com.example.class2021_2022_2_androidappdeveloptraining.entity.Dish_stu;
 
 import java.util.ArrayList;
 import java.util.Locale;

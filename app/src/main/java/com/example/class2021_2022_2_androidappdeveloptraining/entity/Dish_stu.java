@@ -1,4 +1,4 @@
-package com.example.class2021_2022_2_androidappdeveloptraining;
+package com.example.class2021_2022_2_androidappdeveloptraining.entity;
 
 // Dish_stu 菜品
 public class Dish_stu {

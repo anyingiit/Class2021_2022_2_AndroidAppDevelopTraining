@@ -13,6 +13,8 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.class2021_2022_2_androidappdeveloptraining.entity.MyUser_stu;
+
 public class MainActivity extends AppCompatActivity {
     private MyApplication app;
     private Context context;
@@ -141,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this, "敬请期待!", Toast.LENGTH_LONG).show();
                 return;
-                
+
 //                if (!app.IsUserLogin()) {
 //                    Toast.makeText(MainActivity.this, "请先登录", Toast.LENGTH_LONG).show();
 //                    return;
