@@ -40,7 +40,7 @@ public class UserCenter extends Activity {
             finish();
             return;
         }
-        user = app.getUserById(userId);
+        user = app.getUsers().getUserById(userId);
 
         username = findViewById(R.id.textView1);
         passwordCheck = findViewById(R.id.editText1);

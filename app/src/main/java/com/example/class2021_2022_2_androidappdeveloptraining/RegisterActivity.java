@@ -1,7 +1,6 @@
 package com.example.class2021_2022_2_androidappdeveloptraining;
 
 import android.app.Activity;
-import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -56,20 +55,20 @@ public class RegisterActivity extends Activity {
 
                 String usernameString = username.getText().toString();
 
-                if (app.findUserByUsername(usernameString) != null) {
+                if (app.getUsers().findUserByUsername(usernameString) != null) {
                     Toast.makeText(RegisterActivity.this, "用户已存在", Toast.LENGTH_LONG).show();
                     return;
                 }
 
                 String phoneString = phone.getText().toString();
-                if (app.findUserByPhone(phoneString) != null) {
+                if (app.getUsers().findUserByPhone(phoneString) != null) {
                     Toast.makeText(RegisterActivity.this, "手机号已被注册", Toast.LENGTH_LONG).show();
                     return;
                 }
 
                 String addressString = address.getText().toString();
 
-                app.addUser(usernameString, passwordString, phoneString, addressString);
+                app.getUsers().addUser(usernameString, passwordString, phoneString, addressString);
 
                 Intent intent = new Intent();
                 intent.putExtra("username", usernameString);

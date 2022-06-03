@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void login(String username, String password) {
-        User user = app.findUserByUsername(username);
+        User user = app.getUsers().findUserByUsername(username);
         if (user != null) {
             if (password.equals(user.getmPassword_stu())) {
                 app.userLogin(user);
