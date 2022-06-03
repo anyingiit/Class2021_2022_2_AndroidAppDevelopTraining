@@ -12,7 +12,7 @@ public class MyApplication extends Application {
     private User loginUser;
     private Users users;
     private ShoppingCard shoppingCart_stu;
-    private Dishes dishes_;
+    private Dishes dishes;
 
     @Override
     public void onCreate() {
@@ -23,8 +23,8 @@ public class MyApplication extends Application {
     }
 
     private void initDishs() {
-        dishes_ = new Dishes();
-        dishes_.addDish(new Dish("宫保鸡丁", 0, 15.5f));
+        dishes = new Dishes();
+        dishes.addDish(new Dish("宫保鸡丁", 0, 15.5f));
     }
 
     private void initUsers() {
@@ -38,7 +38,7 @@ public class MyApplication extends Application {
     }
 
     public Dishes getDishes_stu() {
-        return dishes_;
+        return dishes;
     }
 
     public void setUserLogout() {
