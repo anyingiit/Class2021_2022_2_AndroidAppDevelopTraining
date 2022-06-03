@@ -11,6 +11,7 @@ import com.example.class2021_2022_2_androidappdeveloptraining.Dish_stu;
 import com.example.class2021_2022_2_androidappdeveloptraining.R;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class CaiPinAdapter extends BaseAdapter {
 
@@ -54,10 +55,10 @@ public class CaiPinAdapter extends BaseAdapter {
         TextView price = view.findViewById(R.id.price);
 
         Dish_stu dish = caipin.get(position);
-        number.setText(Integer.toString(dish.getmId_stu()));
+        number.setText(String.format(Locale.CHINA, "%d", dish.getmId_stu()));
         food_name.setText(dish.getmName_stu());
-        price.setText(Float.toString(dish.getmPrice_stu()));
-
+        // %3.2f 占三位, 保留两位小数
+        price.setText(String.format(Locale.CHINA, "%3.2f", dish.getmPrice_stu()));
 
         return view;
     }
