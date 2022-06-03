@@ -1,15 +1,15 @@
 package com.example.class2021_2022_2_androidappdeveloptraining.entity;
 
-public class OrderItem_stu {
-    private Dish_stu dish_stu;
+public class OrderItem {
+    private Dish dish_stu;
     private int mQuantity_stu;
 
-    OrderItem_stu(Dish_stu dish, int quantity) {
+    OrderItem(Dish dish, int quantity) {
         this.dish_stu = dish;
         this.mQuantity_stu = quantity;
     }
 
-    public Dish_stu getDish_stu() {
+    public Dish getDish_stu() {
         return dish_stu;
     }
 

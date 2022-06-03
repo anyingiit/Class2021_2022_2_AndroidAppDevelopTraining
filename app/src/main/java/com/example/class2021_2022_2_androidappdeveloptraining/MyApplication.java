@@ -2,18 +2,18 @@ package com.example.class2021_2022_2_androidappdeveloptraining;
 
 import android.app.Application;
 
-import com.example.class2021_2022_2_androidappdeveloptraining.entity.Dish_stu;
-import com.example.class2021_2022_2_androidappdeveloptraining.entity.Dishes_stu;
-import com.example.class2021_2022_2_androidappdeveloptraining.entity.MyUser_stu;
-import com.example.class2021_2022_2_androidappdeveloptraining.entity.ShoppingCart_stu;
+import com.example.class2021_2022_2_androidappdeveloptraining.entity.Dish;
+import com.example.class2021_2022_2_androidappdeveloptraining.entity.Dishes;
+import com.example.class2021_2022_2_androidappdeveloptraining.entity.ShoppingCard;
+import com.example.class2021_2022_2_androidappdeveloptraining.entity.User;
 
 import java.util.ArrayList;
 
 public class MyApplication extends Application {
-    private ArrayList<MyUser_stu> userList;
-    private MyUser_stu user;
-    private ShoppingCart_stu shoppingCart_stu;
-    private Dishes_stu dishes_stu;
+    private ArrayList<User> userList;
+    private User user;
+    private ShoppingCard shoppingCart_stu;
+    private Dishes dishes_;
 
     @Override
     public void onCreate() {
@@ -26,8 +26,8 @@ public class MyApplication extends Application {
     }
 
     private void initDishs() {
-        dishes_stu = new Dishes_stu();
-        dishes_stu.addDish(new Dish_stu("宫保鸡丁", 0, 15.5f));
+        dishes_ = new Dishes();
+        dishes_.addDish(new Dish("宫保鸡丁", 0, 15.5f));
     }
 
     private void initFakeUser() {
@@ -38,8 +38,8 @@ public class MyApplication extends Application {
         addUser("user5", "123", "15888888881", "花村");
     }
 
-    public Dishes_stu getDishes_stu() {
-        return dishes_stu;
+    public Dishes getDishes_stu() {
+        return dishes_;
     }
 
     public void setUserLogout() {
@@ -50,17 +50,17 @@ public class MyApplication extends Application {
         return user != null;
     }
 
-    public void userLogin(MyUser_stu user) {
+    public void userLogin(User user) {
         this.user = user;
     }
 
     public void addUser(String username, String password, String phone, String address) {
         int newID = userList.size() == 0 ? 0 : userList.get(userList.size() - 1).getmUserId_stu() + 1;
-        userList.add(new MyUser_stu(newID, username, password, phone, address));
+        userList.add(new User(newID, username, password, phone, address));
     }
 
-    public MyUser_stu findUserByUsername(String username) {
-        for (MyUser_stu user :
+    public User findUserByUsername(String username) {
+        for (User user :
                 userList) {
             if (user.getmUsername_stu().equals(username)) {
                 return user;
@@ -70,8 +70,8 @@ public class MyApplication extends Application {
         return null;
     }
 
-    public MyUser_stu findUserByPhone(String phone) {
-        for (MyUser_stu user :
+    public User findUserByPhone(String phone) {
+        for (User user :
                 userList) {
             if (user.getmUserPhone_stu().equals(phone)) {
                 return user;
@@ -89,7 +89,7 @@ public class MyApplication extends Application {
         return hasUserListIndex(id);
     }
 
-    public MyUser_stu getUserById(int userId) {
+    public User getUserById(int userId) {
         if (!hasUserId(userId)) {
             return null;
         }
@@ -97,7 +97,7 @@ public class MyApplication extends Application {
         return userList.get(userId);
     }
 
-    public MyUser_stu getUser() {
+    public User getUser() {
         return user;
     }
 }

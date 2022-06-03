@@ -1,6 +1,6 @@
 package com.example.class2021_2022_2_androidappdeveloptraining.entity;
 
-public class MyUser_stu {
+public class User {
     private int mUserId_stu;
     private String mSeatName_stu;
     private String mUsername_stu;
@@ -9,7 +9,7 @@ public class MyUser_stu {
     private String mUserPhone_stu;
     private String mUserAddress_stu;
 
-    public MyUser_stu(int userId, String username, String password, String phone, String address) {
+    public User(int userId, String username, String password, String phone, String address) {
         this.mUserId_stu = userId;
         this.mUsername_stu = username;
         this.mPassword_stu = password;

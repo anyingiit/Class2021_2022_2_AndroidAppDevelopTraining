@@ -2,15 +2,15 @@ package com.example.class2021_2022_2_androidappdeveloptraining.entity;
 
 import java.util.ArrayList;
 
-public class ShoppingCart_stu {
+public class ShoppingCard {
     private String mUserName_stu;
-    private ArrayList<OrderItem_stu> mOrderItems_stu;
+    private ArrayList<OrderItem> mOrderItems_stu;
 
-    ShoppingCart_stu(String username) {
+    ShoppingCard(String username) {
         this.mUserName_stu = username;
     }
 
-    ShoppingCart_stu(String username, ArrayList<OrderItem_stu> orderItems) {
+    ShoppingCard(String username, ArrayList<OrderItem> orderItems) {
         this.mUserName_stu = username;
         this.mOrderItems_stu = orderItems;
     }
@@ -23,7 +23,7 @@ public class ShoppingCart_stu {
         return index >= 0 && index <= mOrderItems_stu.size() - 1;
     }
 
-    public OrderItem_stu getOrderByIndex(int index) {
+    public OrderItem getOrderByIndex(int index) {
         if (!hasIndex(index)) {
             return null;
         }
@@ -53,14 +53,14 @@ public class ShoppingCart_stu {
     }
 
 
-    public int addOrderItem(Dish_stu dish, int quantity) {
+    public int addOrderItem(Dish dish, int quantity) {
         int orderIndex = getOrderIndexByDishName(dish.getmName_stu());
         if (orderIndex == -1) {
-            mOrderItems_stu.add(new OrderItem_stu(dish, quantity));
+            mOrderItems_stu.add(new OrderItem(dish, quantity));
             return mOrderItems_stu.size() - 1;
         }
 
-        OrderItem_stu orderItem = mOrderItems_stu.get(orderIndex);
+        OrderItem orderItem = mOrderItems_stu.get(orderIndex);
         orderItem.setQuantity(orderItem.getQuantity_stu() + quantity);
 
         return orderIndex;
@@ -68,7 +68,7 @@ public class ShoppingCart_stu {
 
     public float getTotalPrise() {
         int result = 0;
-        for (OrderItem_stu item :
+        for (OrderItem item :
                 mOrderItems_stu) {
             result += item.getQuantity_stu();
         }

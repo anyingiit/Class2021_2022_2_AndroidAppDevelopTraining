@@ -13,7 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.class2021_2022_2_androidappdeveloptraining.entity.MyUser_stu;
+import com.example.class2021_2022_2_androidappdeveloptraining.entity.User;
 
 public class MainActivity extends AppCompatActivity {
     private MyApplication app;
@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                 Intent intent = new Intent(MainActivity.this, UserCenter.class);
-                MyUser_stu user = app.getUser();
+                User user = app.getUser();
                 intent.putExtra("userId", user.getmUserId_stu());
                 startActivityForResult(intent, REQUEST_CODE.UserCenter.ordinal());
             }
@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void login(String username, String password) {
-        MyUser_stu user = app.findUserByUsername(username);
+        User user = app.findUserByUsername(username);
         if (user != null) {
             if (password.equals(user.getmPassword_stu())) {
                 app.userLogin(user);

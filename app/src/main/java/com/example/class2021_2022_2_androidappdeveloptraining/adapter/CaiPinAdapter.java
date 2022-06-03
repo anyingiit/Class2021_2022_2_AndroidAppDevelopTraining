@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.class2021_2022_2_androidappdeveloptraining.R;
-import com.example.class2021_2022_2_androidappdeveloptraining.entity.Dish_stu;
+import com.example.class2021_2022_2_androidappdeveloptraining.entity.Dish;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -16,7 +16,7 @@ import java.util.Locale;
 public class CaiPinAdapter extends BaseAdapter {
 
     Context context;
-    ArrayList<Dish_stu> caipin;
+    ArrayList<Dish> caipin;
 
     View view;
 
@@ -24,7 +24,7 @@ public class CaiPinAdapter extends BaseAdapter {
      * @param context 上下文, 即adapter附着的对象
      * @param caipin  期望使用adapter处理的数据集合, 这里传入的是菜品的列表
      */
-    public CaiPinAdapter(Context context, ArrayList<Dish_stu> caipin) {
+    public CaiPinAdapter(Context context, ArrayList<Dish> caipin) {
         this.context = context;
         this.caipin = caipin;
     }
@@ -54,7 +54,7 @@ public class CaiPinAdapter extends BaseAdapter {
         TextView food_name = view.findViewById(R.id.food_name);
         TextView price = view.findViewById(R.id.price);
 
-        Dish_stu dish = caipin.get(position);
+        Dish dish = caipin.get(position);
         number.setText(String.format(Locale.CHINA, "%d", dish.getmId_stu()));
         food_name.setText(dish.getmName_stu());
         // %3.2f 占三位, 保留两位小数
