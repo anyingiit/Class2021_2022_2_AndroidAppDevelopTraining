@@ -10,10 +10,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentResultListener;
 
 import com.example.class2021_2022_2_androidappdeveloptraining.entity.User;
+import com.example.class2021_2022_2_androidappdeveloptraining.fragment.IsConformDialogFragment;
 
 public class MainActivity extends AppCompatActivity {
     private MyApplication app;
@@ -34,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
     Button myOrder;
 
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -49,18 +51,21 @@ public class MainActivity extends AppCompatActivity {
         login = findViewById(R.id.button4);
         myOrder = findViewById(R.id.button5);
 
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (app.IsUserLogin()) {
-                    IsConformDialog("确定注销吗", new DialogInterface.OnClickListener() {
+                    new IsConformDialogFragment("确定吗", "确定注销吗", "conformLogoutOption").show(getSupportFragmentManager(), "conformLogoutOption");
+                    getSupportFragmentManager().setFragmentResultListener("conformLogoutOption", MainActivity.this, new FragmentResultListener() {
                         @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            app.setUserLogout();
-                            login.setTextSize(30);
-                            String welComeString = "登录";
-                            login.setText(welComeString);
-                            dialog.dismiss();
+                        public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
+                            if (result.getBoolean("result")) {
+                                app.setUserLogout();
+                                login.setTextSize(30);
+                                String welComeString = "登录";
+                                login.setText(welComeString);
+                            }
                         }
                     });
                     return;
@@ -189,8 +194,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void IsConformDialog(String message, DialogInterface.OnClickListener positiveCallback) {
-        boolean conformed = false;
-
         AlertDialog alertDialog = new AlertDialog.Builder(this)
                 .setTitle("确定要执行操作吗?")
                 .setMessage(message)
@@ -204,11 +207,4 @@ public class MainActivity extends AppCompatActivity {
 
         alertDialog.show();
     }
-
-    //    private class ButtonsListener implements View.OnClickListener {
-//        @Override
-//        public void onClick(View v) {
-//
-//        }
-//    }
 }
