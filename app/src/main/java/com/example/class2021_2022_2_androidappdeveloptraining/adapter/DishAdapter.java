@@ -22,11 +22,11 @@ public class DishAdapter extends BaseAdapter {
 
     /**
      * @param context 上下文, 即adapter附着的对象
-     * @param caipin  期望使用adapter处理的数据集合, 这里传入的是菜品的列表
+     * @param dishes  期望使用adapter处理的数据集合, 这里传入的是菜品的列表
      */
-    public DishAdapter(Context context, ArrayList<Dish> caipin) {
+    public DishAdapter(Context context, ArrayList<Dish> dishes) {
         this.context = context;
-        this.caipin = caipin;
+        this.caipin = dishes;
     }
 
     @Override
