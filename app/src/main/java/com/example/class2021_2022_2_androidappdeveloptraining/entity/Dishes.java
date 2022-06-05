@@ -6,15 +6,15 @@ import java.util.ArrayList;
  * Class {@code Dishes_stu} use with menu
  */
 public class Dishes {
-    private final ArrayList<Dish> mDishes_stu;
+    private final ArrayList<Dish> dishes;
 
     public Dishes() {
-        this.mDishes_stu = new ArrayList<>();
+        this.dishes = new ArrayList<>();
     }
 
-    public Dish getDishByName_stu(String name) {
-        for (Dish dish : mDishes_stu) {
-            if (dish.getName().equals(name)) {
+    public Dish findDishByDishName(String dishName) {
+        for (Dish dish : dishes) {
+            if (dish.getName().equals(dishName)) {
                 return dish;
             }
         }
@@ -22,25 +22,25 @@ public class Dishes {
     }
 
     public int getSize() {
-        return mDishes_stu.size();
+        return dishes.size();
     }
 
     private boolean hasIndex(int index) {
         return index >= 0 && index <= getSize() - 1;
     }
 
-    public Dish getDishByIndex(int index) {
+    public Dish getDish(int index) {
         if (!hasIndex(index)) {
             return null;
         }
-        return mDishes_stu.get(index);
+        return dishes.get(index);
     }
 
     public void addDish(String name, int image, float price) {
-        mDishes_stu.add(new Dish(mDishes_stu.size(), name, image, price));
+        dishes.add(new Dish(dishes.size(), name, image, price));
     }
 
-    public ArrayList<Dish> getRow() {
-        return mDishes_stu;
+    public ArrayList<Dish> getDishes() {
+        return dishes;
     }
 }
