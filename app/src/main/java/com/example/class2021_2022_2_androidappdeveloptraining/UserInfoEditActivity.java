@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 
 import com.example.class2021_2022_2_androidappdeveloptraining.entity.User;
 
-public class UserCenterActivity extends Activity {
+public class UserInfoEditActivity extends Activity {
     private MyApplication app;
 
     private User user;
@@ -29,14 +29,14 @@ public class UserCenterActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_info);
+        setContentView(R.layout.activity_user_info_edit);
 
         app = (MyApplication) getApplication();
 
         Intent intent = getIntent();
         int userId = intent.getIntExtra("userId", -1);
         if (userId == -1) {
-            Toast.makeText(UserCenterActivity.this, "发生内部错误, 未传入user ID", Toast.LENGTH_LONG).show();
+            Toast.makeText(UserInfoEditActivity.this, "发生内部错误, 未传入user ID", Toast.LENGTH_LONG).show();
             finish();
             return;
         }
@@ -57,13 +57,13 @@ public class UserCenterActivity extends Activity {
             public void onClick(View v) {
                 String passwordCheckString = passwordCheck.getText().toString();
                 if (passwordCheckString.equals("") || !passwordCheckString.equals(user.getPassword())) {
-                    Toast.makeText(UserCenterActivity.this, "密码验证失败, 请正确输入您的密码", Toast.LENGTH_LONG).show();
+                    Toast.makeText(UserInfoEditActivity.this, "密码验证失败, 请正确输入您的密码", Toast.LENGTH_LONG).show();
                     return;
                 }
 
                 user.setPhone(phone.getText().toString());
                 user.setAddress(address.getText().toString());
-                Toast.makeText(UserCenterActivity.this, "修改完成", Toast.LENGTH_LONG).show();
+                Toast.makeText(UserInfoEditActivity.this, "修改完成", Toast.LENGTH_LONG).show();
                 finish();
             }
         });
