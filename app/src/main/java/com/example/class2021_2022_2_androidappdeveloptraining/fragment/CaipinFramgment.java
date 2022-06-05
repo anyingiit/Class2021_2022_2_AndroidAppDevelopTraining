@@ -27,7 +27,7 @@ public class CaipinFramgment extends Fragment implements AdapterView.OnItemClick
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         if (view == null) {
-            view = inflater.inflate(R.layout.framgment_caipin_list_stu, container, false);
+            view = inflater.inflate(R.layout.framgment_caipin_list, container, false);
         }
         ListView list_view = view.findViewById(R.id.list_view);
         list_view.setAdapter(new CaiPinAdapter(getContext(), app.getDishes_stu().getRow()));

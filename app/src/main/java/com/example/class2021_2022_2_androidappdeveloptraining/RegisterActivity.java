@@ -26,7 +26,7 @@ public class RegisterActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register_stu);
+        setContentView(R.layout.activity_register);
 
         app = (MyApplication) getApplication();
 

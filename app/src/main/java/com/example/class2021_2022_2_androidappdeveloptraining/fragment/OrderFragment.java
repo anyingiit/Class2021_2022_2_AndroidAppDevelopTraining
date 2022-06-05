@@ -30,7 +30,7 @@ public class OrderFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.framgment_ordered_stu, container, false);
+        View view = inflater.inflate(R.layout.framgment_ordered, container, false);
         MyApplication app = (MyApplication) requireActivity().getApplication();
         shoppingCardItems = new ArrayList<>();
         listViewAdapter = new ShoppingCardItemAdapter(getContext(), shoppingCardItems);
