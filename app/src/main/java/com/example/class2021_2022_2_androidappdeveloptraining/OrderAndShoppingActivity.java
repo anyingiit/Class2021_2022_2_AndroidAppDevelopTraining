@@ -25,7 +25,7 @@ public class OrderAndShoppingActivity extends FragmentActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.order_and_shopping_activity);
+        setContentView(R.layout.activity_order_and_shopping);
         initPager();
 
         tabLayout = findViewById(R.id.tab_layout);

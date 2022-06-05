@@ -35,7 +35,7 @@ public class LoginDialog extends Dialog {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_dialog);
+        setContentView(R.layout.dialog_login);
 
         username = findViewById(R.id.editText1);
         password = findViewById(R.id.editText2);
