@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(MainActivity.this, UserCenterActivity.class);
                 User user = app.getLoginUser();
-                intent.putExtra("userId", user.getmUserId_stu());
+                intent.putExtra("userId", user.getId());
                 startActivityForResult(intent, REQUEST_CODE.UserCenter.ordinal());
             }
         });
@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
     private void login(String username, String password) {
         User user = app.getUsers().findUserByUsername(username);
         if (user != null) {
-            if (password.equals(user.getmPassword_stu())) {
+            if (password.equals(user.getPassword())) {
                 app.userLogin(user);
                 login.setTextSize(20);
                 login.setText(username);

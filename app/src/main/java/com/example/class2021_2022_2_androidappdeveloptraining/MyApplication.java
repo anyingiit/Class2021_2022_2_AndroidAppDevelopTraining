@@ -50,7 +50,7 @@ public class MyApplication extends Application {
 
     public void userLogin(User user) {
         this.loginUser = user;
-        shoppingCart_stu = new ShoppingCard(loginUser.getmUsername_stu());
+        shoppingCart_stu = new ShoppingCard(loginUser.getUsername());
     }
 
 

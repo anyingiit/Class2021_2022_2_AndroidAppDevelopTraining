@@ -1,51 +1,51 @@
 package com.example.class2021_2022_2_androidappdeveloptraining.entity;
 
 public class User {
-    private int mUserId_stu;
-    private String mSeatName_stu;
-    private String mUsername_stu;
+    private final int id;
+    private String seatName;
+    private final String username;
 
-    private String mPassword_stu;
-    private String mUserPhone_stu;
-    private String mUserAddress_stu;
+    private String password;
+    private String phone;
+    private String address;
 
     public User(int userId, String username, String password, String phone, String address) {
-        this.mUserId_stu = userId;
-        this.mUsername_stu = username;
-        this.mPassword_stu = password;
-        this.mUserPhone_stu = phone;
-        this.mUserAddress_stu = address;
+        this.id = userId;
+        this.username = username;
+        this.password = password;
+        this.phone = phone;
+        this.address = address;
     }
 
-    public int getmUserId_stu() {
-        return mUserId_stu;
+    public int getId() {
+        return id;
     }
 
-    public String getmUsername_stu() {
-        return mUsername_stu;
+    public String getUsername() {
+        return username;
     }
 
-    public String getmSeatName_stu() {
-        return mSeatName_stu;
+    public String getSeatName() {
+        return seatName;
     }
 
-    public String getmPassword_stu() {
-        return mPassword_stu;
+    public String getPassword() {
+        return password;
     }
 
-    public String getmUserPhone_stu() {
-        return mUserPhone_stu;
+    public String getPhone() {
+        return phone;
     }
 
-    public String getmUserAddress_stu() {
-        return mUserAddress_stu;
+    public String getAddress() {
+        return address;
     }
 
-    public void setmUserPhone_stu(String mUserPhone_stu) {
-        this.mUserPhone_stu = mUserPhone_stu;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public void setmUserAddress_stu(String mUserAddress_stu) {
-        this.mUserAddress_stu = mUserAddress_stu;
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

@@ -16,7 +16,7 @@ public class Users {
     public User findUserByUsername(String username) {
         for (User user :
                 users) {
-            if (user.getmUsername_stu().equals(username)) {
+            if (user.getUsername().equals(username)) {
                 return user;
             }
         }
@@ -27,7 +27,7 @@ public class Users {
     public User findUserByPhone(String phone) {
         for (User user :
                 users) {
-            if (user.getmUserPhone_stu().equals(phone)) {
+            if (user.getPhone().equals(phone)) {
                 return user;
             }
         }

@@ -50,19 +50,19 @@ public class UserCenterActivity extends Activity {
         editUserInfo = findViewById(R.id.button1);
         back = findViewById(R.id.button2);
 
-        username.setText(user.getmUsername_stu());
+        username.setText(user.getUsername());
 
         editUserInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String passwordCheckString = passwordCheck.getText().toString();
-                if (passwordCheckString.equals("") || !passwordCheckString.equals(user.getmPassword_stu())) {
+                if (passwordCheckString.equals("") || !passwordCheckString.equals(user.getPassword())) {
                     Toast.makeText(UserCenterActivity.this, "密码验证失败, 请正确输入您的密码", Toast.LENGTH_LONG).show();
                     return;
                 }
 
-                user.setmUserPhone_stu(phone.getText().toString());
-                user.setmUserAddress_stu(address.getText().toString());
+                user.setPhone(phone.getText().toString());
+                user.setAddress(address.getText().toString());
                 Toast.makeText(UserCenterActivity.this, "修改完成", Toast.LENGTH_LONG).show();
                 finish();
             }
