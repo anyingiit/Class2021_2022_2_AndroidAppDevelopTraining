@@ -30,7 +30,7 @@ public class CaipinFramgment extends Fragment implements AdapterView.OnItemClick
             view = inflater.inflate(R.layout.framgment_caipin_list, container, false);
         }
         ListView list_view = view.findViewById(R.id.list_view);
-        list_view.setAdapter(new CaiPinAdapter(getContext(), app.getDishes_stu().getRow()));
+        list_view.setAdapter(new CaiPinAdapter(getContext(), app.getDishes_stu().getDishes()));
         list_view.setOnItemClickListener(this);
         return view;
     }
@@ -57,7 +57,7 @@ public class CaipinFramgment extends Fragment implements AdapterView.OnItemClick
             @Override
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
                 Toast.makeText(parent.getContext(), position + "获取到值" + result.getInt("result"), Toast.LENGTH_LONG).show();
-                app.getShoppingCart_stu().addItem(app.getDishes_stu().getRow().get(position), result.getInt("result"));
+                app.getShoppingCart_stu().addItem(app.getDishes_stu().getDishes().get(position), result.getInt("result"));
             }
         });
     }
