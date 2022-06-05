@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -24,7 +23,7 @@ public class ShoppingCardFragment extends Fragment {
 
     MyApplication app;
 
-    BaseAdapter listViewAdapter;
+    ShoppingCardItemAdapter listViewAdapter;
 
     @Nullable
     @Override
@@ -44,7 +43,7 @@ public class ShoppingCardFragment extends Fragment {
                 shoppingCard.addItem(new Dish((int) (Math.random() * 100), Integer.toString((int) (Math.random() * 100)), (int) (Math.random() * 100), (float) (Math.random() * 100)), 1);
                 for (ShoppingCardItem item :
                         shoppingCard.getShoppingCardItems()) {
-                    System.out.println(item.getDish().getId() + "" + item.getDish().getName());
+                    System.out.println(item.getDish().getId() + " " + item.getDish().getName());
                 }
                 System.out.println();
                 listViewAdapter.notifyDataSetChanged();
