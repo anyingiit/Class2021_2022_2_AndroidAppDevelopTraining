@@ -21,6 +21,15 @@ public class Dishes {
         return null;
     }
 
+    public Dish findDishByDishId(int dishId) {
+        for (Dish dish : dishes) {
+            if (dish.getId() == dishId) {
+                return dish;
+            }
+        }
+        return null;
+    }
+
     public int getSize() {
         return dishes.size();
     }
