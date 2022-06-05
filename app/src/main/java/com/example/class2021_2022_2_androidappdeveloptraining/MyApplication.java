@@ -2,7 +2,6 @@ package com.example.class2021_2022_2_androidappdeveloptraining;
 
 import android.app.Application;
 
-import com.example.class2021_2022_2_androidappdeveloptraining.entity.Dish;
 import com.example.class2021_2022_2_androidappdeveloptraining.entity.Dishes;
 import com.example.class2021_2022_2_androidappdeveloptraining.entity.ShoppingCard;
 import com.example.class2021_2022_2_androidappdeveloptraining.entity.User;
@@ -24,7 +23,7 @@ public class MyApplication extends Application {
 
     private void initDishs() {
         dishes = new Dishes();
-        dishes.addDish(new Dish("宫保鸡丁", 0, 15.5f));
+        dishes.addDish("宫保鸡丁", 0, 15.5f);
     }
 
     private void initUsers() {

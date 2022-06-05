@@ -36,8 +36,8 @@ public class Dishes {
         return mDishes_stu.get(index);
     }
 
-    public void addDish(Dish dish_stu) {
-        mDishes_stu.add(new Dish(mDishes_stu.size(), dish_stu.getName(), dish_stu.getImage(), dish_stu.getPrice()));
+    public void addDish(String name, int image, float price) {
+        mDishes_stu.add(new Dish(mDishes_stu.size(), name, image, price));
     }
 
     public ArrayList<Dish> getRow() {
