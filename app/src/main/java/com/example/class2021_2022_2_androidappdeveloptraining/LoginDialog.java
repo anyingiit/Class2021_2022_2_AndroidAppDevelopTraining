@@ -10,7 +10,7 @@ import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 
-public class LoginDialog_stu extends Dialog {
+public class LoginDialog extends Dialog {
     public enum options {Login, Register, Cancel}
 
     private options buttonStatus = options.Cancel;
@@ -26,7 +26,7 @@ public class LoginDialog_stu extends Dialog {
     CheckBox rememberedUsername;
 
 
-    public LoginDialog_stu(@NonNull Context context) {
+    public LoginDialog(@NonNull Context context) {
         super(context);
     }
 

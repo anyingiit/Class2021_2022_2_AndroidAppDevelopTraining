@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
                 // MainActivity.this 实际上就是我们把自己的运行时传过去然后dialog用这个运行时(也就是我们本身)去执行一些东西, 权限应该和自身是相同的
-                final LoginDialog_stu loginDialog = new LoginDialog_stu(MainActivity.this);
+                final LoginDialog loginDialog = new LoginDialog(MainActivity.this);
                 loginDialog.show();
                 loginDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
                     @Override
