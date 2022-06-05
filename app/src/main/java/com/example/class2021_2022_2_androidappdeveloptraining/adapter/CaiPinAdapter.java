@@ -47,7 +47,7 @@ public class CaiPinAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (view == null) {
-            view = LayoutInflater.from(context).inflate(R.layout.food, parent, false);
+            view = LayoutInflater.from(context).inflate(R.layout.fragment_food, parent, false);
         }
 
         TextView number = view.findViewById(R.id.number);
