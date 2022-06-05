@@ -9,7 +9,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.class2021_2022_2_androidappdeveloptraining.adapter.FragmentAdapter;
-import com.example.class2021_2022_2_androidappdeveloptraining.fragment.DishFramgment;
+import com.example.class2021_2022_2_androidappdeveloptraining.fragment.MenuFragment;
 import com.example.class2021_2022_2_androidappdeveloptraining.fragment.ShoppingCardFragment;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
@@ -40,7 +40,7 @@ public class OrderAndShoppingActivity extends FragmentActivity {
     private void initPager() {
         vp_content = findViewById(R.id.vp_content);
         ArrayList<Fragment> fragments = new ArrayList<>();
-        fragments.add(new DishFramgment());
+        fragments.add(new MenuFragment());
         fragments.add(new ShoppingCardFragment());
         FragmentAdapter viewPager = new FragmentAdapter(getSupportFragmentManager(), getLifecycle(), fragments);
         vp_content.setAdapter(viewPager);

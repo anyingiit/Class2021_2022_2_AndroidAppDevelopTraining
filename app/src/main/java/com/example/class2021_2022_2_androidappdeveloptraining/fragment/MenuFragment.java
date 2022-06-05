@@ -18,7 +18,7 @@ import com.example.class2021_2022_2_androidappdeveloptraining.R;
 import com.example.class2021_2022_2_androidappdeveloptraining.adapter.DishAdapter;
 import com.example.class2021_2022_2_androidappdeveloptraining.fragment.dialog.GetNumberDialogFragment;
 
-public class DishFramgment extends Fragment implements AdapterView.OnItemClickListener {
+public class MenuFragment extends Fragment implements AdapterView.OnItemClickListener {
 
     MyApplication app;
 
@@ -54,7 +54,7 @@ public class DishFramgment extends Fragment implements AdapterView.OnItemClickLi
         Toast.makeText(parent.getContext(), "点击了" + position, Toast.LENGTH_LONG).show();
         new GetNumberDialogFragment(0, "getCaipinNumber").show(getParentFragmentManager(), "getCaipinNumber");
 
-        getParentFragmentManager().setFragmentResultListener("getCaipinNumber", DishFramgment.this, new FragmentResultListener() {
+        getParentFragmentManager().setFragmentResultListener("getCaipinNumber", MenuFragment.this, new FragmentResultListener() {
             @Override
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
                 Toast.makeText(parent.getContext(), position + "获取到值" + result.getInt("result"), Toast.LENGTH_LONG).show();
