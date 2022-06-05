@@ -75,4 +75,11 @@ public class ShoppingCard {
         return shoppingCardItems.size();
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public ArrayList<ShoppingCardItem> getShoppingCardItems() {
+        return shoppingCardItems;
+    }
 }
