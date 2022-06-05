@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -22,12 +23,16 @@ import com.example.class2021_2022_2_androidappdeveloptraining.entity.ShoppingCar
 import com.example.class2021_2022_2_androidappdeveloptraining.entity.ShoppingCardItem;
 import com.example.class2021_2022_2_androidappdeveloptraining.fragment.dialog.GetNumberDialogFragment;
 
+import java.util.Locale;
+
 public class ShoppingCardFragment extends Fragment implements ShoppingCardItemAdapter.OnItemClickListener {
     ShoppingCard shoppingCard;
 
     MyApplication app;
 
     ShoppingCardItemAdapter shoppingCardItemAdapter;
+
+    TextView price;
 
     @Nullable
     @Override
@@ -43,6 +48,9 @@ public class ShoppingCardFragment extends Fragment implements ShoppingCardItemAd
         recyclerView.setLayoutManager(layoutManager);
         shoppingCardItemAdapter.setOnItemClickListener(this);
 
+        this.price = view.findViewById(R.id.price);
+        price.setText(String.format(Locale.CHINA, "%3.2f", 0.0));
+
         Button add = view.findViewById(R.id.add);
         add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +62,7 @@ public class ShoppingCardFragment extends Fragment implements ShoppingCardItemAd
                 }
                 System.out.println();
                 shoppingCardItemAdapter.notifyDataSetChanged();
+                refreshTotalPrice();
             }
         });
 
@@ -70,6 +79,7 @@ public class ShoppingCardFragment extends Fragment implements ShoppingCardItemAd
 
                 shoppingCard.addItem(dish, quantity);
                 shoppingCardItemAdapter.notifyDataSetChanged();
+                refreshTotalPrice();
             }
         });
 
@@ -94,7 +104,12 @@ public class ShoppingCardFragment extends Fragment implements ShoppingCardItemAd
                 }
 
                 shoppingCardItemAdapter.notifyDataSetChanged();
+                refreshTotalPrice();
             }
         });
+    }
+
+    private void refreshTotalPrice() {
+        price.setText(String.format(Locale.CHINA, "%3.2f", shoppingCard.getTotalPrise()));
     }
 }
