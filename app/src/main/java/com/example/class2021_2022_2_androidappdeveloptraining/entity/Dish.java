@@ -1,6 +1,6 @@
 package com.example.class2021_2022_2_androidappdeveloptraining.entity;
 
-// Dish_stu 菜品
+// Dish 菜品
 public class Dish {
     private final int id;
     private final String name;

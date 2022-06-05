@@ -3,7 +3,7 @@ package com.example.class2021_2022_2_androidappdeveloptraining.entity;
 import java.util.ArrayList;
 
 /**
- * Class {@code Dishes_stu} use with menu
+ * Class {@code Dishes} use with menu
  */
 public class Dishes {
     private final ArrayList<Dish> dishes;
