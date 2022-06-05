@@ -3,50 +3,44 @@ package com.example.class2021_2022_2_androidappdeveloptraining.entity;
 import java.util.ArrayList;
 
 public class ShoppingCard {
-    private String mUserName_stu;
-    private ArrayList<ShoppingCardItem> mShoppingCardItems_stu;
+    private final String username;
+    private final ArrayList<ShoppingCardItem> shoppingCardItems;
 
     public ShoppingCard(String username) {
-        this.mUserName_stu = username;
-        mShoppingCardItems_stu = new ArrayList<>();
+        this.username = username;
+        shoppingCardItems = new ArrayList<>();
     }
 
-    public ShoppingCard(String username, ArrayList<ShoppingCardItem> shoppingCardItems) {
-        this.mUserName_stu = username;
-        this.mShoppingCardItems_stu = shoppingCardItems;
-    }
-
-    public int getOrderItemQuantityWyc() {
-        return mShoppingCardItems_stu.size();
+    public int getQuantity() {
+        return shoppingCardItems.size();
     }
 
     private boolean hasIndex(int index) {
-        return index >= 0 && index <= mShoppingCardItems_stu.size() - 1;
+        return index >= 0 && index <= shoppingCardItems.size() - 1;
     }
 
-    public ShoppingCardItem getOrderByIndex(int index) {
+    public ShoppingCardItem getItem(int index) {
         if (!hasIndex(index)) {
             return null;
         }
 
-        return mShoppingCardItems_stu.get(index);
+        return shoppingCardItems.get(index);
     }
 
-    public boolean deleteOrderItemByIndex(int index) {
+    public boolean deleteItem(int index) {
         if (!hasIndex(index)) {
             return false;
         }
-        mShoppingCardItems_stu.remove(index);
-
+        shoppingCardItems.remove(index);
         return true;
     }
 
     /**
-     * @return not has dish then return -1
+     * @return if not has dish then return -1
      */
-    private int getOrderIndexByDishName(String dishName) {
-        for (int i = 0; i < mShoppingCardItems_stu.size(); i++) {
-            if (mShoppingCardItems_stu.get(i).getDish().getName().equals(dishName)) {
+    private int findItemByDishName(String dishName) {
+        for (int i = 0; i < shoppingCardItems.size(); i++) {
+            if (shoppingCardItems.get(i).getDish().getName().equals(dishName)) {
                 return i;
             }
         }
@@ -54,14 +48,14 @@ public class ShoppingCard {
     }
 
 
-    public int addOrderItem(Dish dish, int quantity) {
-        int orderIndex = getOrderIndexByDishName(dish.getName());
+    public int addItem(Dish dish, int quantity) {
+        int orderIndex = findItemByDishName(dish.getName());
         if (orderIndex == -1) {
-            mShoppingCardItems_stu.add(new ShoppingCardItem(dish, quantity));
-            return mShoppingCardItems_stu.size() - 1;
+            shoppingCardItems.add(new ShoppingCardItem(dish, quantity));
+            return shoppingCardItems.size() - 1;
         }
 
-        ShoppingCardItem shoppingCardItem = mShoppingCardItems_stu.get(orderIndex);
+        ShoppingCardItem shoppingCardItem = shoppingCardItems.get(orderIndex);
         shoppingCardItem.setQuantity(shoppingCardItem.getQuantity() + quantity);
 
         return orderIndex;
@@ -70,7 +64,7 @@ public class ShoppingCard {
     public float getTotalPrise() {
         int result = 0;
         for (ShoppingCardItem item :
-                mShoppingCardItems_stu) {
+                shoppingCardItems) {
             result += item.getItemTotalPrice();
         }
 
@@ -78,8 +72,7 @@ public class ShoppingCard {
     }
 
     public int size() {
-        return mShoppingCardItems_stu.size();
+        return shoppingCardItems.size();
     }
 
-//    public void EditOderItemQuantity()
 }

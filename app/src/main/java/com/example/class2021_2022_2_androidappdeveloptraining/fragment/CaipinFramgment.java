@@ -57,7 +57,7 @@ public class CaipinFramgment extends Fragment implements AdapterView.OnItemClick
             @Override
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
                 Toast.makeText(parent.getContext(), position + "获取到值" + result.getInt("result"), Toast.LENGTH_LONG).show();
-                app.getShoppingCart_stu().addOrderItem(app.getDishes_stu().getRow().get(position), result.getInt("result"));
+                app.getShoppingCart_stu().addItem(app.getDishes_stu().getRow().get(position), result.getInt("result"));
             }
         });
     }
