@@ -48,4 +48,12 @@ public class User {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setSeatName(String seatName) {
+        this.seatName = seatName;
+    }
 }
