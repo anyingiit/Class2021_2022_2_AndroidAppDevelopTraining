@@ -44,7 +44,7 @@ public class OrderFragment extends Fragment {
                 shoppingCardItems.add(new ShoppingCardItem(new Dish((int) (Math.random() * 100), Integer.toString((int) (Math.random() * 100)), (int) (Math.random() * 100), (float) (Math.random() * 100)), 1));
                 for (ShoppingCardItem item :
                         shoppingCardItems) {
-                    System.out.println(item.getDish_stu().getId());
+                    System.out.println(item.getDish().getId());
                 }
                 listViewAdapter.notifyDataSetChanged();
             }

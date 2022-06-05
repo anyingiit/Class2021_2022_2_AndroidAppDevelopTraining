@@ -51,10 +51,10 @@ public class ShoppingCardItemAdapter extends BaseAdapter {
         TextView totalPrice = view.findViewById(R.id.textView4);
 
         ShoppingCardItem shoppingCardItem = shoppingCardItems.get(position);
-        name.setText(shoppingCardItem.getDish_stu().getName());
-        price.setText(String.format(Locale.CHINA, "%2.2f", shoppingCardItem.getDish_stu().getPrice()));
-        number.setText(String.format(Locale.CHINA, "%2d", shoppingCardItem.getQuantity_stu()));
-        totalPrice.setText(String.format(Locale.CHINA, "%3.2f", shoppingCardItem.getItemTotalPriceWyc()));
+        name.setText(shoppingCardItem.getDish().getName());
+        price.setText(String.format(Locale.CHINA, "%2.2f", shoppingCardItem.getDish().getPrice()));
+        number.setText(String.format(Locale.CHINA, "%2d", shoppingCardItem.getQuantity()));
+        totalPrice.setText(String.format(Locale.CHINA, "%3.2f", shoppingCardItem.getItemTotalPrice()));
 
         return view;
     }
