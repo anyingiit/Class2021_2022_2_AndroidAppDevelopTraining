@@ -4,8 +4,10 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.class2021_2022_2_androidappdeveloptraining.R;
 import com.example.class2021_2022_2_androidappdeveloptraining.entity.ShoppingCardItem;
@@ -13,49 +15,51 @@ import com.example.class2021_2022_2_androidappdeveloptraining.entity.ShoppingCar
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class ShoppingCardItemAdapter extends BaseAdapter {
+class MyViewHolder extends RecyclerView.ViewHolder {
+    protected TextView name;
+    protected TextView price;
+    protected TextView number;
+    protected TextView totalPrice;
+
+    public MyViewHolder(@NonNull View itemView) {
+        super(itemView);
+
+        name = itemView.findViewById(R.id.textView1);
+        price = itemView.findViewById(R.id.textView2);
+        number = itemView.findViewById(R.id.textView3);
+        totalPrice = itemView.findViewById(R.id.textView4);
+    }
+}
+
+public class ShoppingCardItemAdapter extends RecyclerView.Adapter<MyViewHolder> {
+
     Context context;
     ArrayList<ShoppingCardItem> shoppingCardItems;
-
-    View view;
 
     public ShoppingCardItemAdapter(Context context, ArrayList<ShoppingCardItem> shoppingCardItems) {
         this.context = context;
         this.shoppingCardItems = shoppingCardItems;
     }
 
+    @NonNull
     @Override
-    public int getCount() {
-        return shoppingCardItems.size();
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.frarmgment_shopping_card_item, parent, false);
+        MyViewHolder myViewHolder = new MyViewHolder(view);
+        return myViewHolder;
     }
 
     @Override
-    public Object getItem(int position) {
-        return shoppingCardItems.get(position);
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        if (view == null) {
-            view = LayoutInflater.from(context).inflate(R.layout.frarmgment_shopping_card_item, parent, false);
-        }
-
-        TextView name = view.findViewById(R.id.textView1);
-        TextView price = view.findViewById(R.id.textView2);
-        TextView number = view.findViewById(R.id.textView3);
-        TextView totalPrice = view.findViewById(R.id.textView4);
-
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         ShoppingCardItem shoppingCardItem = shoppingCardItems.get(position);
-        name.setText(shoppingCardItem.getDish().getName());
-        price.setText(String.format(Locale.CHINA, "%2.2f", shoppingCardItem.getDish().getPrice()));
-        number.setText(String.format(Locale.CHINA, "%2d", shoppingCardItem.getQuantity()));
-        totalPrice.setText(String.format(Locale.CHINA, "%3.2f", shoppingCardItem.getItemTotalPrice()));
+        holder.name.setText(shoppingCardItem.getDish().getName());
+        holder.price.setText(String.format(Locale.CHINA, "%2.2f", shoppingCardItem.getDish().getPrice()));
+        holder.number.setText(String.format(Locale.CHINA, "%2d", shoppingCardItem.getQuantity()));
+        holder.totalPrice.setText(String.format(Locale.CHINA, "%3.2f", shoppingCardItem.getItemTotalPrice()));
+    }
 
-        return view;
+    @Override
+    public int getItemCount() {
+        return shoppingCardItems.size();
     }
 }

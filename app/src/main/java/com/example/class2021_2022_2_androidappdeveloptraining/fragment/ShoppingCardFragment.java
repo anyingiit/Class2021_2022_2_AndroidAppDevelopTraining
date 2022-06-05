@@ -5,11 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.class2021_2022_2_androidappdeveloptraining.MyApplication;
 import com.example.class2021_2022_2_androidappdeveloptraining.R;
@@ -23,7 +24,7 @@ public class ShoppingCardFragment extends Fragment {
 
     MyApplication app;
 
-    ShoppingCardItemAdapter listViewAdapter;
+    ShoppingCardItemAdapter shoppingCardItemAdapter;
 
     @Nullable
     @Override
@@ -32,9 +33,12 @@ public class ShoppingCardFragment extends Fragment {
         this.shoppingCard = new ShoppingCard(app.getLoginUser().getUsername());
 
         View view = inflater.inflate(R.layout.framgment_shoppping_card, container, false);
-        this.listViewAdapter = new ShoppingCardItemAdapter(getContext(), shoppingCard.getShoppingCardItems());
-        ListView listView = view.findViewById(R.id.list_view);
-        listView.setAdapter(listViewAdapter);
+        this.shoppingCardItemAdapter = new ShoppingCardItemAdapter(getContext(), shoppingCard.getShoppingCardItems());
+        RecyclerView listView = view.findViewById(R.id.list_view);
+        listView.setAdapter(shoppingCardItemAdapter);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        listView.setLayoutManager(layoutManager);
+
 
         Button add = view.findViewById(R.id.add);
         add.setOnClickListener(new View.OnClickListener() {
@@ -46,10 +50,12 @@ public class ShoppingCardFragment extends Fragment {
                     System.out.println(item.getDish().getId() + " " + item.getDish().getName());
                 }
                 System.out.println();
-                listViewAdapter.notifyDataSetChanged();
+                shoppingCardItemAdapter.notifyDataSetChanged();
             }
         });
 
         return view;
     }
+
+
 }
