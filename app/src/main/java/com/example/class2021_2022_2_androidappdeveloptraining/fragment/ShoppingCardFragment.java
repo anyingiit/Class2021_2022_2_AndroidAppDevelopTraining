@@ -44,8 +44,9 @@ public class ShoppingCardFragment extends Fragment {
                 shoppingCard.addItem(new Dish((int) (Math.random() * 100), Integer.toString((int) (Math.random() * 100)), (int) (Math.random() * 100), (float) (Math.random() * 100)), 1);
                 for (ShoppingCardItem item :
                         shoppingCard.getShoppingCardItems()) {
-                    System.out.println(item.getDish().getId());
+                    System.out.println(item.getDish().getId() + "" + item.getDish().getName());
                 }
+                System.out.println();
                 listViewAdapter.notifyDataSetChanged();
             }
         });
