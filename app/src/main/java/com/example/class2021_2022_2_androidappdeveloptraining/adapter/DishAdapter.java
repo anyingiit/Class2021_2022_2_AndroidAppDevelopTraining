@@ -16,7 +16,7 @@ import java.util.Locale;
 public class DishAdapter extends BaseAdapter {
 
     Context context;
-    ArrayList<Dish> caipin;
+    ArrayList<Dish> dishes;
 
     View view;
 
@@ -26,22 +26,22 @@ public class DishAdapter extends BaseAdapter {
      */
     public DishAdapter(Context context, ArrayList<Dish> dishes) {
         this.context = context;
-        this.caipin = dishes;
+        this.dishes = dishes;
     }
 
     @Override
     public int getCount() {
-        return caipin.size();
+        return dishes.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return caipin.get(position);
+        return dishes.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return position;
+        return dishes.get(position).getId();
     }
 
     @Override
@@ -54,7 +54,7 @@ public class DishAdapter extends BaseAdapter {
         TextView food_name = view.findViewById(R.id.food_name);
         TextView price = view.findViewById(R.id.price);
 
-        Dish dish = caipin.get(position);
+        Dish dish = dishes.get(position);
         number.setText(String.format(Locale.CHINA, "%d", dish.getId()));
         food_name.setText(dish.getName());
         // %3.2f 占三位, 保留两位小数
