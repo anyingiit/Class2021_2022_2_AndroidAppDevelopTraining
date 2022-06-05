@@ -36,11 +36,10 @@ public class ShoppingCardFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.framgment_shoppping_card, container, false);
         this.shoppingCardItemAdapter = new ShoppingCardItemAdapter(getContext(), shoppingCard.getShoppingCardItems());
-        RecyclerView listView = view.findViewById(R.id.list_view);
-        listView.setAdapter(shoppingCardItemAdapter);
+        RecyclerView recyclerView = view.findViewById(R.id.list_view);
+        recyclerView.setAdapter(shoppingCardItemAdapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-        listView.setLayoutManager(layoutManager);
-
+        recyclerView.setLayoutManager(layoutManager);
 
         Button add = view.findViewById(R.id.add);
         add.setOnClickListener(new View.OnClickListener() {
