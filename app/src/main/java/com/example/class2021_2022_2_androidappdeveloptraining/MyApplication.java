@@ -24,6 +24,7 @@ public class MyApplication extends Application {
     private void initDishs() {
         dishes = new Dishes();
         dishes.addDish("宫保鸡丁", 0, 15.5f);
+        dishes.addDish("鱼香肉丝", 0, 13.8f);
     }
 
     private void initUsers() {

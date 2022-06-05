@@ -62,7 +62,7 @@ public class ShoppingCard {
     }
 
     public float getTotalPrise() {
-        int result = 0;
+        float result = 0;
         for (ShoppingCardItem item :
                 shoppingCardItems) {
             result += item.getItemTotalPrice();
