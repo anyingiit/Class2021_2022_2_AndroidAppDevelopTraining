@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".UserCenter" />
+        <activity android:name=".UserCenterActivity" />
         <activity android:name=".OrderAndShoppingActivity" />
     </application>
 

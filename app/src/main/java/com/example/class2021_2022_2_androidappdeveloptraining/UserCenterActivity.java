@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 
 import com.example.class2021_2022_2_androidappdeveloptraining.entity.User;
 
-public class UserCenter extends Activity {
+public class UserCenterActivity extends Activity {
     private MyApplication app;
 
     private User user;
@@ -36,7 +36,7 @@ public class UserCenter extends Activity {
         Intent intent = getIntent();
         int userId = intent.getIntExtra("userId", -1);
         if (userId == -1) {
-            Toast.makeText(UserCenter.this, "发生内部错误, 未传入user ID", Toast.LENGTH_LONG).show();
+            Toast.makeText(UserCenterActivity.this, "发生内部错误, 未传入user ID", Toast.LENGTH_LONG).show();
             finish();
             return;
         }
@@ -57,13 +57,13 @@ public class UserCenter extends Activity {
             public void onClick(View v) {
                 String passwordCheckString = passwordCheck.getText().toString();
                 if (passwordCheckString.equals("") || !passwordCheckString.equals(user.getmPassword_stu())) {
-                    Toast.makeText(UserCenter.this, "密码验证失败, 请正确输入您的密码", Toast.LENGTH_LONG).show();
+                    Toast.makeText(UserCenterActivity.this, "密码验证失败, 请正确输入您的密码", Toast.LENGTH_LONG).show();
                     return;
                 }
 
                 user.setmUserPhone_stu(phone.getText().toString());
                 user.setmUserAddress_stu(address.getText().toString());
-                Toast.makeText(UserCenter.this, "修改完成", Toast.LENGTH_LONG).show();
+                Toast.makeText(UserCenterActivity.this, "修改完成", Toast.LENGTH_LONG).show();
                 finish();
             }
         });
