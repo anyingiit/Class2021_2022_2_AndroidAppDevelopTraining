@@ -20,8 +20,9 @@ import com.example.class2021_2022_2_androidappdeveloptraining.adapter.ShoppingCa
 import com.example.class2021_2022_2_androidappdeveloptraining.entity.Dish;
 import com.example.class2021_2022_2_androidappdeveloptraining.entity.ShoppingCard;
 import com.example.class2021_2022_2_androidappdeveloptraining.entity.ShoppingCardItem;
+import com.example.class2021_2022_2_androidappdeveloptraining.fragment.dialog.GetNumberDialogFragment;
 
-public class ShoppingCardFragment extends Fragment {
+public class ShoppingCardFragment extends Fragment implements ShoppingCardItemAdapter.OnItemClickListener {
     ShoppingCard shoppingCard;
 
     MyApplication app;
@@ -40,6 +41,7 @@ public class ShoppingCardFragment extends Fragment {
         recyclerView.setAdapter(shoppingCardItemAdapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
+        shoppingCardItemAdapter.setOnItemClickListener(this);
 
         Button add = view.findViewById(R.id.add);
         add.setOnClickListener(new View.OnClickListener() {
@@ -75,4 +77,25 @@ public class ShoppingCardFragment extends Fragment {
     }
 
 
+    @Override
+    public void onItemClick(int position) {
+        ShoppingCardItem shoppingCardItem = shoppingCard.getItem(position);
+        System.out.println(position);
+        int quantity = shoppingCardItem.getQuantity();
+        new GetNumberDialogFragment(quantity, "onShoppingCardGetItemNewQuantity").show(getParentFragmentManager(), "onShoppingCardGetItemNewQuantity");
+
+        getParentFragmentManager().setFragmentResultListener("onShoppingCardGetItemNewQuantity", ShoppingCardFragment.this, new FragmentResultListener() {
+            @Override
+            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
+                int quantityResult = result.getInt("result");
+                if (quantityResult == 0) {
+                    shoppingCard.deleteItem(position);
+                } else {
+                    shoppingCardItem.setQuantity(quantityResult);
+                }
+
+                shoppingCardItemAdapter.notifyDataSetChanged();
+            }
+        });
+    }
 }

@@ -46,6 +46,8 @@ public class GetNumberDialogFragment extends DialogFragment {
         Button sub = view.findViewById(R.id.sub);
         EditText editText = view.findViewById(R.id.editText1);
 
+        editText.setText(String.format(Locale.CHINA, "%d", number));
+
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

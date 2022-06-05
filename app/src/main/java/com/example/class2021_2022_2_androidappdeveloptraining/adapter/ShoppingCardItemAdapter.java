@@ -35,10 +35,19 @@ public class ShoppingCardItemAdapter extends RecyclerView.Adapter<MyViewHolder> 
 
     Context context;
     ArrayList<ShoppingCardItem> shoppingCardItems;
+    private OnItemClickListener listener;
 
     public ShoppingCardItemAdapter(Context context, ArrayList<ShoppingCardItem> shoppingCardItems) {
         this.context = context;
         this.shoppingCardItems = shoppingCardItems;
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listenser) {
+        this.listener = listenser;
     }
 
     @NonNull
@@ -52,6 +61,14 @@ public class ShoppingCardItemAdapter extends RecyclerView.Adapter<MyViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         ShoppingCardItem shoppingCardItem = shoppingCardItems.get(position);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (listener != null) {
+                    listener.onItemClick(holder.getAdapterPosition());
+                }
+            }
+        });
         holder.name.setText(shoppingCardItem.getDish().getName());
         holder.price.setText(String.format(Locale.CHINA, "%2.2f", shoppingCardItem.getDish().getPrice()));
         holder.number.setText(String.format(Locale.CHINA, "%2d", shoppingCardItem.getQuantity()));
