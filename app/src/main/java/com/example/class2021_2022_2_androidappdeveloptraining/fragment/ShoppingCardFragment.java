@@ -20,7 +20,7 @@ import com.example.class2021_2022_2_androidappdeveloptraining.entity.ShoppingCar
 
 import java.util.ArrayList;
 
-public class OrderFragment extends Fragment {
+public class ShoppingCardFragment extends Fragment {
 
     BaseAdapter listViewAdapter;
     ListView listView;
@@ -30,7 +30,7 @@ public class OrderFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.framgment_ordered, container, false);
+        View view = inflater.inflate(R.layout.framgment_shoppping_card, container, false);
         MyApplication app = (MyApplication) requireActivity().getApplication();
         shoppingCardItems = new ArrayList<>();
         listViewAdapter = new ShoppingCardItemAdapter(getContext(), shoppingCardItems);

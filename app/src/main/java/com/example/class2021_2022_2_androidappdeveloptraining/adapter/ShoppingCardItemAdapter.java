@@ -42,7 +42,7 @@ public class ShoppingCardItemAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (view == null) {
-            view = LayoutInflater.from(context).inflate(R.layout.frarmgment_order_item, parent, false);
+            view = LayoutInflater.from(context).inflate(R.layout.frarmgment_shopping_card_item, parent, false);
         }
 
         TextView name = view.findViewById(R.id.textView1);
