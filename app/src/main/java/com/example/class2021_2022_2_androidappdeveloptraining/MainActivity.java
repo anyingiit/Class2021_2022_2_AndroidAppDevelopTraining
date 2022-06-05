@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentResultListener;
 
 import com.example.class2021_2022_2_androidappdeveloptraining.entity.User;
-import com.example.class2021_2022_2_androidappdeveloptraining.fragment.IsConformDialogFragment;
+import com.example.class2021_2022_2_androidappdeveloptraining.fragment.dialog.IsConformDialogFragment;
 
 public class MainActivity extends AppCompatActivity {
     private MyApplication app;

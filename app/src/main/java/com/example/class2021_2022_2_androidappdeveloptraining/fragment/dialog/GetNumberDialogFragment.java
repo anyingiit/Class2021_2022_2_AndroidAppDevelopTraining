@@ -1,4 +1,4 @@
-package com.example.class2021_2022_2_androidappdeveloptraining.fragment;
+package com.example.class2021_2022_2_androidappdeveloptraining.fragment.dialog;
 
 import android.app.AlertDialog;
 import android.app.Dialog;

@@ -16,6 +16,7 @@ import androidx.fragment.app.FragmentResultListener;
 import com.example.class2021_2022_2_androidappdeveloptraining.MyApplication;
 import com.example.class2021_2022_2_androidappdeveloptraining.R;
 import com.example.class2021_2022_2_androidappdeveloptraining.adapter.DishAdapter;
+import com.example.class2021_2022_2_androidappdeveloptraining.fragment.dialog.GetNumberDialogFragment;
 
 public class DishFramgment extends Fragment implements AdapterView.OnItemClickListener {
 
