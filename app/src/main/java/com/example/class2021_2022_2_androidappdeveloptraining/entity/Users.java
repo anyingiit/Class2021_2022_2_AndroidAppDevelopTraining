@@ -35,19 +35,12 @@ public class Users {
         return null;
     }
 
-    private boolean hasUserListIndex(int index) {
-        return index >= 0 && index <= users.size() - 1;
-    }
-
-    private boolean hasUserId(int id) {
-        return hasUserListIndex(id);
-    }
-
-    public User getUserById(int userId) {
-        if (!hasUserId(userId)) {
-            return null;
+    public User findUserById(int userId) {
+        for (User user : users) {
+            if (user.getId() == userId) {
+                return user;
+            }
         }
-
-        return users.get(userId);
+        return null;
     }
 }
