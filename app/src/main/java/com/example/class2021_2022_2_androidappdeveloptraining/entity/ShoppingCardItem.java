@@ -1,10 +1,10 @@
 package com.example.class2021_2022_2_androidappdeveloptraining.entity;
 
-public class OrderItem {
+public class ShoppingCardItem {
     private Dish dish_stu;
     private int mQuantity_stu;
 
-    OrderItem(Dish dish, int quantity) {
+    public ShoppingCardItem(Dish dish, int quantity) {
         this.dish_stu = dish;
         this.mQuantity_stu = quantity;
     }
@@ -17,7 +17,7 @@ public class OrderItem {
         return mQuantity_stu;
     }
 
-    public float GetItemTotalPrice_stu() {
+    public float getItemTotalPriceWyc() {
         return dish_stu.getmPrice_stu() * mQuantity_stu;
     }
 

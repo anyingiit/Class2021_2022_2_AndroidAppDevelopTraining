@@ -4,38 +4,39 @@ import java.util.ArrayList;
 
 public class ShoppingCard {
     private String mUserName_stu;
-    private ArrayList<OrderItem> mOrderItems_stu;
+    private ArrayList<ShoppingCardItem> mShoppingCardItems_stu;
 
-    ShoppingCard(String username) {
+    public ShoppingCard(String username) {
         this.mUserName_stu = username;
+        mShoppingCardItems_stu = new ArrayList<>();
     }
 
-    ShoppingCard(String username, ArrayList<OrderItem> orderItems) {
+    public ShoppingCard(String username, ArrayList<ShoppingCardItem> shoppingCardItems) {
         this.mUserName_stu = username;
-        this.mOrderItems_stu = orderItems;
+        this.mShoppingCardItems_stu = shoppingCardItems;
     }
 
     public int getOrderItemQuantityWyc() {
-        return mOrderItems_stu.size();
+        return mShoppingCardItems_stu.size();
     }
 
     private boolean hasIndex(int index) {
-        return index >= 0 && index <= mOrderItems_stu.size() - 1;
+        return index >= 0 && index <= mShoppingCardItems_stu.size() - 1;
     }
 
-    public OrderItem getOrderByIndex(int index) {
+    public ShoppingCardItem getOrderByIndex(int index) {
         if (!hasIndex(index)) {
             return null;
         }
 
-        return mOrderItems_stu.get(index);
+        return mShoppingCardItems_stu.get(index);
     }
 
     public boolean deleteOrderItemByIndex(int index) {
         if (!hasIndex(index)) {
             return false;
         }
-        mOrderItems_stu.remove(index);
+        mShoppingCardItems_stu.remove(index);
 
         return true;
     }
@@ -44,8 +45,8 @@ public class ShoppingCard {
      * @return not has dish then return -1
      */
     private int getOrderIndexByDishName(String dishName) {
-        for (int i = 0; i < mOrderItems_stu.size(); i++) {
-            if (mOrderItems_stu.get(i).getDish_stu().getmName_stu().equals(dishName)) {
+        for (int i = 0; i < mShoppingCardItems_stu.size(); i++) {
+            if (mShoppingCardItems_stu.get(i).getDish_stu().getmName_stu().equals(dishName)) {
                 return i;
             }
         }
@@ -56,24 +57,28 @@ public class ShoppingCard {
     public int addOrderItem(Dish dish, int quantity) {
         int orderIndex = getOrderIndexByDishName(dish.getmName_stu());
         if (orderIndex == -1) {
-            mOrderItems_stu.add(new OrderItem(dish, quantity));
-            return mOrderItems_stu.size() - 1;
+            mShoppingCardItems_stu.add(new ShoppingCardItem(dish, quantity));
+            return mShoppingCardItems_stu.size() - 1;
         }
 
-        OrderItem orderItem = mOrderItems_stu.get(orderIndex);
-        orderItem.setQuantity(orderItem.getQuantity_stu() + quantity);
+        ShoppingCardItem shoppingCardItem = mShoppingCardItems_stu.get(orderIndex);
+        shoppingCardItem.setQuantity(shoppingCardItem.getQuantity_stu() + quantity);
 
         return orderIndex;
     }
 
     public float getTotalPrise() {
         int result = 0;
-        for (OrderItem item :
-                mOrderItems_stu) {
-            result += item.getQuantity_stu();
+        for (ShoppingCardItem item :
+                mShoppingCardItems_stu) {
+            result += item.getItemTotalPriceWyc();
         }
 
         return result;
+    }
+
+    public int size() {
+        return mShoppingCardItems_stu.size();
     }
 
 //    public void EditOderItemQuantity()

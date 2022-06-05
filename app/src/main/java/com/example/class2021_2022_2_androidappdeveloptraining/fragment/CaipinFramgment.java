@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentResultListener;
 
 import com.example.class2021_2022_2_androidappdeveloptraining.MyApplication;
 import com.example.class2021_2022_2_androidappdeveloptraining.R;
@@ -34,14 +35,30 @@ public class CaipinFramgment extends Fragment implements AdapterView.OnItemClick
         return view;
     }
 
+//    @Override
+//    public void onStart() {
+//        super.onStart();
+//        list_view_adapter.notifyDataSetChanged();
+//    }
+
     @Override
+
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        app = (MyApplication) getActivity().getApplication();
+        app = (MyApplication) requireActivity().getApplication();
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Toast.makeText(parent.getContext(), "点击了" + position, Toast.LENGTH_LONG).show();
+        new GetNumberDialogFragment(0, "getCaipinNumber").show(getParentFragmentManager(), "getCaipinNumber");
+
+        getParentFragmentManager().setFragmentResultListener("getCaipinNumber", CaipinFramgment.this, new FragmentResultListener() {
+            @Override
+            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
+                Toast.makeText(parent.getContext(), position + "获取到值" + result.getInt("result"), Toast.LENGTH_LONG).show();
+                app.getShoppingCart_stu().addOrderItem(app.getDishes_stu().getRow().get(position), result.getInt("result"));
+            }
+        });
     }
 }

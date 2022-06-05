@@ -51,6 +51,7 @@ public class MyApplication extends Application {
 
     public void userLogin(User user) {
         this.loginUser = user;
+        shoppingCart_stu = new ShoppingCard(loginUser.getmUsername_stu());
     }
 
 
@@ -60,5 +61,9 @@ public class MyApplication extends Application {
 
     public Users getUsers() {
         return users;
+    }
+
+    public ShoppingCard getShoppingCart_stu() {
+        return shoppingCart_stu;
     }
 }
