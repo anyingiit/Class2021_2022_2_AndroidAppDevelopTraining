@@ -15,6 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentResultListener;
 
+import com.example.class2021_2022_2_androidappdeveloptraining.dialog.LoginDialog;
 import com.example.class2021_2022_2_androidappdeveloptraining.entity.User;
 import com.example.class2021_2022_2_androidappdeveloptraining.fragment.dialog.IsConformDialogFragment;
 

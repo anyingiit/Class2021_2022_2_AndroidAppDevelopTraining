@@ -1,4 +1,4 @@
-package com.example.class2021_2022_2_androidappdeveloptraining;
+package com.example.class2021_2022_2_androidappdeveloptraining.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -9,6 +9,8 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 
 import androidx.annotation.NonNull;
+
+import com.example.class2021_2022_2_androidappdeveloptraining.R;
 
 public class LoginDialog extends Dialog {
     public enum options {Login, Register, Cancel}
