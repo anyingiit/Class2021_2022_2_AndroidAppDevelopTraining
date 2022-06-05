@@ -80,7 +80,6 @@ public class ShoppingCardFragment extends Fragment implements ShoppingCardItemAd
     @Override
     public void onItemClick(int position) {
         ShoppingCardItem shoppingCardItem = shoppingCard.getItem(position);
-        System.out.println(position);
         int quantity = shoppingCardItem.getQuantity();
         new GetNumberDialogFragment(quantity, "onShoppingCardGetItemNewQuantity").show(getParentFragmentManager(), "onShoppingCardGetItemNewQuantity");
 
