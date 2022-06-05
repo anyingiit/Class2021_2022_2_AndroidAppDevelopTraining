@@ -13,7 +13,7 @@ import com.example.class2021_2022_2_androidappdeveloptraining.entity.Dish;
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class CaiPinAdapter extends BaseAdapter {
+public class DishAdapter extends BaseAdapter {
 
     Context context;
     ArrayList<Dish> caipin;
@@ -24,7 +24,7 @@ public class CaiPinAdapter extends BaseAdapter {
      * @param context 上下文, 即adapter附着的对象
      * @param caipin  期望使用adapter处理的数据集合, 这里传入的是菜品的列表
      */
-    public CaiPinAdapter(Context context, ArrayList<Dish> caipin) {
+    public DishAdapter(Context context, ArrayList<Dish> caipin) {
         this.context = context;
         this.caipin = caipin;
     }

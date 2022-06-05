@@ -15,7 +15,7 @@ import androidx.fragment.app.FragmentResultListener;
 
 import com.example.class2021_2022_2_androidappdeveloptraining.MyApplication;
 import com.example.class2021_2022_2_androidappdeveloptraining.R;
-import com.example.class2021_2022_2_androidappdeveloptraining.adapter.CaiPinAdapter;
+import com.example.class2021_2022_2_androidappdeveloptraining.adapter.DishAdapter;
 
 public class CaipinFramgment extends Fragment implements AdapterView.OnItemClickListener {
 
@@ -30,7 +30,7 @@ public class CaipinFramgment extends Fragment implements AdapterView.OnItemClick
             view = inflater.inflate(R.layout.framgment_caipin_list, container, false);
         }
         ListView list_view = view.findViewById(R.id.list_view);
-        list_view.setAdapter(new CaiPinAdapter(getContext(), app.getDishes_stu().getDishes()));
+        list_view.setAdapter(new DishAdapter(getContext(), app.getDishes_stu().getDishes()));
         list_view.setOnItemClickListener(this);
         return view;
     }

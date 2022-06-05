@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
-import com.example.class2021_2022_2_androidappdeveloptraining.adapter.ViewAdapter;
+import com.example.class2021_2022_2_androidappdeveloptraining.adapter.FragmentAdapter;
 import com.example.class2021_2022_2_androidappdeveloptraining.fragment.CaipinFramgment;
 import com.example.class2021_2022_2_androidappdeveloptraining.fragment.OrderFragment;
 import com.google.android.material.tabs.TabLayout;
@@ -42,7 +42,7 @@ public class OrderAndShoppingActivity extends FragmentActivity {
         ArrayList<Fragment> fragments = new ArrayList<>();
         fragments.add(new CaipinFramgment());
         fragments.add(new OrderFragment());
-        ViewAdapter viewPager = new ViewAdapter(getSupportFragmentManager(), getLifecycle(), fragments);
+        FragmentAdapter viewPager = new FragmentAdapter(getSupportFragmentManager(), getLifecycle(), fragments);
         vp_content.setAdapter(viewPager);
     }
 }
