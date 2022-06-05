@@ -23,12 +23,12 @@ public class GetNumberDialogFragment extends DialogFragment {
 
     private String requestId;
 
-    private int curNumber;
+    private int number;
 
     private boolean isConform;
 
-    public GetNumberDialogFragment(int curNumber, String requestId) {
-        this.curNumber = curNumber;
+    public GetNumberDialogFragment(int initNumber, String requestId) {
+        this.number = initNumber;
         this.requestId = requestId;
 
         this.isConform = false;
@@ -49,16 +49,16 @@ public class GetNumberDialogFragment extends DialogFragment {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                curNumber = curNumber >= 9 ? 9 : curNumber + 1;
-                editText.setText(String.format(Locale.CHINA, "%d", curNumber));
+                number = number >= 9 ? 9 : number + 1;
+                editText.setText(String.format(Locale.CHINA, "%d", number));
             }
         });
 
         sub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                curNumber = curNumber <= 0 ? 0 : curNumber - 1;
-                editText.setText(String.format(Locale.CHINA, "%d", curNumber));
+                number = number <= 0 ? 0 : number - 1;
+                editText.setText(String.format(Locale.CHINA, "%d", number));
             }
         });
 
@@ -76,12 +76,12 @@ public class GetNumberDialogFragment extends DialogFragment {
                 int numberTemp = Integer.parseInt(editText.getText().toString());
                 if (numberTemp > 9) {
                     editText.setText(String.format(Locale.CHINA, "%d", 9));
-                    curNumber = 9;
+                    number = 9;
                 } else if (numberTemp < 0) {
                     editText.setText(String.format(Locale.CHINA, "%d", 0));
-                    curNumber = 0;
+                    number = 0;
                 } else {
-                    curNumber = numberTemp;
+                    number = numberTemp;
                 }
             }
 
@@ -111,7 +111,7 @@ public class GetNumberDialogFragment extends DialogFragment {
         }
 
         Bundle bundle = new Bundle();
-        bundle.putInt("result", curNumber);
+        bundle.putInt("result", number);
         getParentFragmentManager().setFragmentResult(requestId, bundle);
     }
 }
