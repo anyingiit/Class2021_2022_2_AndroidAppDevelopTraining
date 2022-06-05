@@ -14,7 +14,7 @@ public class Dishes {
 
     public Dish getDishByName_stu(String name) {
         for (Dish dish : mDishes_stu) {
-            if (dish.getmName_stu().equals(name)) {
+            if (dish.getName().equals(name)) {
                 return dish;
             }
         }
@@ -37,7 +37,7 @@ public class Dishes {
     }
 
     public void addDish(Dish dish_stu) {
-        mDishes_stu.add(new Dish(mDishes_stu.size(), dish_stu.getmName_stu(), dish_stu.getmImage_stu(), dish_stu.getmPrice_stu()));
+        mDishes_stu.add(new Dish(mDishes_stu.size(), dish_stu.getName(), dish_stu.getImage(), dish_stu.getPrice()));
     }
 
     public ArrayList<Dish> getRow() {

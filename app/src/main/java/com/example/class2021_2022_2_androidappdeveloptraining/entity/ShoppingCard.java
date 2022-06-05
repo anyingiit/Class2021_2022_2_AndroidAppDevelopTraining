@@ -46,7 +46,7 @@ public class ShoppingCard {
      */
     private int getOrderIndexByDishName(String dishName) {
         for (int i = 0; i < mShoppingCardItems_stu.size(); i++) {
-            if (mShoppingCardItems_stu.get(i).getDish_stu().getmName_stu().equals(dishName)) {
+            if (mShoppingCardItems_stu.get(i).getDish_stu().getName().equals(dishName)) {
                 return i;
             }
         }
@@ -55,7 +55,7 @@ public class ShoppingCard {
 
 
     public int addOrderItem(Dish dish, int quantity) {
-        int orderIndex = getOrderIndexByDishName(dish.getmName_stu());
+        int orderIndex = getOrderIndexByDishName(dish.getName());
         if (orderIndex == -1) {
             mShoppingCardItems_stu.add(new ShoppingCardItem(dish, quantity));
             return mShoppingCardItems_stu.size() - 1;

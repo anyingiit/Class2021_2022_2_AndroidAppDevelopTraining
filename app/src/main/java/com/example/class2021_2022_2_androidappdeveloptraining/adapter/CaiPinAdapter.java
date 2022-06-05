@@ -55,10 +55,10 @@ public class CaiPinAdapter extends BaseAdapter {
         TextView price = view.findViewById(R.id.price);
 
         Dish dish = caipin.get(position);
-        number.setText(String.format(Locale.CHINA, "%d", dish.getmId_stu()));
-        food_name.setText(dish.getmName_stu());
+        number.setText(String.format(Locale.CHINA, "%d", dish.getId()));
+        food_name.setText(dish.getName());
         // %3.2f 占三位, 保留两位小数
-        price.setText(String.format(Locale.CHINA, "%3.2f", dish.getmPrice_stu()));
+        price.setText(String.format(Locale.CHINA, "%3.2f", dish.getPrice()));
 
         return view;
     }

@@ -18,7 +18,7 @@ public class ShoppingCardItem {
     }
 
     public float getItemTotalPriceWyc() {
-        return dish_stu.getmPrice_stu() * mQuantity_stu;
+        return dish_stu.getPrice() * mQuantity_stu;
     }
 
     public void setQuantity(int newQuantity) {
