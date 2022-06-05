@@ -22,9 +22,12 @@ public class OrderAndShoppingActivity extends FragmentActivity {
     private ViewPager2 vp_content;
     private com.google.android.material.tabs.TabLayout tabLayout;
 
+    private MyApplication app;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        app = (MyApplication) getApplication();
         setContentView(R.layout.activity_order_and_shopping);
         initPager();
 

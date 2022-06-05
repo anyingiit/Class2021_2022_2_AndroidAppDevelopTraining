@@ -10,7 +10,7 @@ import com.example.class2021_2022_2_androidappdeveloptraining.entity.Users;
 public class MyApplication extends Application {
     private User loginUser;
     private Users users;
-    private ShoppingCard shoppingCart_stu;
+    private ShoppingCard shoppingCart;
     private Dishes dishes;
 
     @Override
@@ -50,7 +50,7 @@ public class MyApplication extends Application {
 
     public void userLogin(User user) {
         this.loginUser = user;
-        shoppingCart_stu = new ShoppingCard(loginUser.getUsername());
+        shoppingCart = new ShoppingCard(loginUser.getUsername());
     }
 
 
@@ -62,7 +62,7 @@ public class MyApplication extends Application {
         return users;
     }
 
-    public ShoppingCard getShoppingCart_stu() {
-        return shoppingCart_stu;
+    public ShoppingCard getShoppingCart() {
+        return shoppingCart;
     }
 }

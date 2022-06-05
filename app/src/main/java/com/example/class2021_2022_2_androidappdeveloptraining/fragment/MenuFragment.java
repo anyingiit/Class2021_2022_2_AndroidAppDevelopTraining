@@ -58,7 +58,7 @@ public class MenuFragment extends Fragment implements AdapterView.OnItemClickLis
             @Override
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
                 Toast.makeText(parent.getContext(), position + "获取到值" + result.getInt("result"), Toast.LENGTH_LONG).show();
-                app.getShoppingCart_stu().addItem(app.getDishes_stu().getDishes().get(position), result.getInt("result"));
+                app.getShoppingCart().addItem(app.getDishes_stu().getDishes().get(position), result.getInt("result"));
             }
         });
     }
