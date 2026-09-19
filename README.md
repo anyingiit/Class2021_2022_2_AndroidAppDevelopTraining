@@ -1,9 +1,11 @@
 <!-- Source: Best-README-Template BLANK_README (Unlicense) — https://github.com/othneildrew/Best-README-Template -->
 <a id="readme-top"></a>
 
-# Class2021 2022 2 AndroidAppDevelopTraining
+# Class2021_2022_2_AndroidAppDevelopTraining
 
-Class2021 2022 2 android app develop training has no README describing its purpose; its manifest (build.gradle, settings.gradle) marks it as a Java (Gradle) codebase, built with Java.
+A Java Android coursework app, built with Gradle, in which a user logs in, browses a two-item menu, adds dishes to a shopping cart, and places an order across three linked activities.
+
+**English** · [简体中文](README.zh-CN.md)
 
 [![CI](https://github.com/anyingiit/Class2021_2022_2_AndroidAppDevelopTraining/actions/workflows/ci.yml/badge.svg)](https://github.com/anyingiit/Class2021_2022_2_AndroidAppDevelopTraining/actions/workflows/ci.yml)
 [![License](https://img.shields.io/github/license/anyingiit/Class2021_2022_2_AndroidAppDevelopTraining)](LICENSE)
@@ -24,7 +26,7 @@ Class2021 2022 2 android app develop training has no README describing its purpo
 
 ## About The Project
 
-Class2021 2022 2 android app develop training has no README describing its purpose; its manifest (build.gradle, settings.gradle) marks it as a Java (Gradle) codebase, built with Java.
+Class2021_2022_2_AndroidAppDevelopTraining is a Java Android app built for an Android development course assignment. `MainActivity` offers login, order, takeout and account entry points, and `OrderAndShoppingActivity` hosts a two-tab menu and shopping cart backed by an in-memory dish catalog (`entity/Dishes.java`) and a small set of seeded demo accounts.
 
 See the [open issues](https://github.com/anyingiit/Class2021_2022_2_AndroidAppDevelopTraining/issues) for planned features and known issues.
 
@@ -32,6 +34,8 @@ See the [open issues](https://github.com/anyingiit/Class2021_2022_2_AndroidAppDe
 
 ### Prerequisites
 
+- JDK 11
+- Android SDK Platform 31 and the matching Build-Tools (`compileSdk 31` in `app/build.gradle`), for example via Android Studio
 - Git
 
 ### Installation
@@ -39,13 +43,20 @@ See the [open issues](https://github.com/anyingiit/Class2021_2022_2_AndroidAppDe
 ```sh
 git clone https://github.com/anyingiit/Class2021_2022_2_AndroidAppDevelopTraining.git
 cd Class2021_2022_2_AndroidAppDevelopTraining
+./gradlew assembleDebug
 ```
+
+The Gradle wrapper (`gradlew`) pins Gradle 7.3.3 and downloads it on first run, so no separate Gradle install is required.
 
 ## Usage
 
+Connect a device or start an emulator, then install and launch the debug build from the command line:
+
 ```sh
-Class2021_2022_2_AndroidAppDevelopTraining --help
+./gradlew installDebug
 ```
+
+Or open the project in Android Studio and run the `app` configuration. Once it launches, sign in with one of the demo accounts seeded in `MyApplication` (or register a new one), then open the ordering screen to add dishes to the cart and check out.
 
 ## Contributing
 
